@@ -197,6 +197,98 @@ $(document).ready(function() {
             }
           })
     });
+
+    //ACTUALIZAR REGISTRO ESTUDIANTES
+    $('#update_estudiante').on('submit',function(e){
+        e.preventDefault();
+        var datos = $(this).serializeArray();
+
+        if($('#nombreACT').val().trim() === ''){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Por favor, digite el nombre.'
+            })
+        }else if($('#edadACT').val().trim() === ''){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Por favor, digite la edad.'
+            })
+        }else if($('#cursoACT').val().trim() === ''){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Por favor, seleccione un curso.'
+            })
+        }else{
+            $.ajax({
+                type: $(this).attr('method'),
+                data : datos,
+                url: $(this).attr('action'),
+                dataType: 'json',
+                success: function(data){
+                    var resultado = data;
+                    if(resultado.respuesta == "Exito"){
+                        Swal.fire(
+                            'Correcto',
+                            'Registro actualizado exitosamente',
+                            'success'
+                        )
+                        setTimeout(function() {
+                            location.reload();           
+                        }, 2000);
+                    }else{
+                        Swal.fire(
+                            'Error',
+                            'Hubo un error al actualizar el registro.',
+                            'error'
+                        )
+                    }
+                }
+            })
+        }
+    });
+
+    //ACTUALIZAR REGISTRO MATERIAS
+    $('#update_materias').on('submit',function(e){
+        e.preventDefault();
+        var datos = $(this).serializeArray();
+
+        if($('#materiaATC').val().trim() === ''){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Por favor, digite el nombre de la materia.'
+            })
+        }else{
+            $.ajax({
+                type: $(this).attr('method'),
+                data : datos,
+                url: $(this).attr('action'),
+                dataType: 'json',
+                success: function(data){
+                    var resultado = data;
+                    if(resultado.respuesta == "Exito"){
+                        Swal.fire(
+                            'Correcto',
+                            'Registro actualizado exitosamente',
+                            'success'
+                        )
+                        setTimeout(function() {
+                            location.reload();           
+                        }, 2000);
+                    }else{
+                        Swal.fire(
+                            'Error',
+                            'Hubo un error al actualizar el registro.',
+                            'error'
+                        )
+                    }
+                }
+            })
+        }
+    });
 } );
 
 

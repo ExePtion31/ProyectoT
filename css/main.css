@@ -1,7 +1,7 @@
 .contenedor_principal{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+    gap: 3rem;
 }
 
 .contenedor_opciones{
@@ -56,3 +56,4 @@
     color: #000;
     font-weight: bold;
 }
+

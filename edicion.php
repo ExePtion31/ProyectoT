@@ -48,7 +48,7 @@
                         <td><?php echo $row2['NombreCurso'] ?></td>
                         <?php } ?>
                         <td>
-                            <a href="" class="btn btn-outline-warning">Editar</a>
+                            <a href="editar.php?id=<?php echo $row['ID']?>&tipo=estudiante" class="btn btn-outline-warning">Editar</a>
                             <a href="" class="btn btn-outline-danger borrar_registro" data-id="<?php echo $row['ID'] ?>" data-tipo="estudiantes">Eliminar</a>
                         </td>
                     </tr>
@@ -91,7 +91,7 @@
                         <td><?php echo $row['ID'] ?></td>
                         <td><?php echo $row['NombreMateria'] ?></td>
                         <td>
-                            <a href="" class="btn btn-outline-warning">Editar</a>
+                            <a href="editar.php?id=<?php echo $row['ID']?>&tipo=materia" class="btn btn-outline-warning">Editar</a>
                             <a href="" class="btn btn-outline-danger borrar_registro" data-id="<?php echo $row['ID'] ?>" data-tipo="materias">Eliminar</a>
                         </td>
                     </tr>
@@ -153,7 +153,7 @@
                         <?php } ?>
                         <td><?php echo $row['Nota'] ?></td>
                         <td>
-                            <a href="" class="btn btn-outline-warning">Editar</a>
+                            <a href="editar.php?id=<?php echo $row['ID']?>&tipo=calificacion" class="btn btn-outline-warning">Editar</a>
                             <a href="" class="btn btn-outline-danger borrar_registro" data-id="<?php echo $row['ID'] ?>" data-tipo="calificaciones">Eliminar</a>
                         </td>
                     </tr>
