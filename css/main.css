@@ -57,3 +57,10 @@
     font-weight: bold;
 }
 
+.icono{
+    color: #000;
+}
+
+.icono:hover{
+    color: #0B2AE2;
+}

@@ -55,7 +55,7 @@
                 <i class="fas fa-search display-1 icono"></i>
             </div>
         </a>
-        <a href="" class="text-decoration-none">
+        <a href="translate.php" class="text-decoration-none">
             <div class="container text-center rounded p-3 contenedor_opciones">
                 <h3>SECCIÓN DE TRADUCCIÓN</h3>
                 <hr>

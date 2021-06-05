@@ -289,9 +289,58 @@ $(document).ready(function() {
             })
         }
     });
-} );
 
+    //VALIDAR TRADUCTOR
+    $('#form_translate').on('submit',function(e){
+        e.preventDefault();
+        var datos = $(this).serializeArray();
+        var Lentrada = document.getElementById('Lentrada')
+        var Lsalida = document.getElementById('Lsalida')
 
-
-
-
+        if(Lentrada.value == 0){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Por favor, seleccione el idioma de entrada.'
+            })
+        }else if(Lsalida.value == 0){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Por favor, seleccione el idioma de salida.'
+            })
+        }else if($('#textotraducir').val().trim() === ''){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Por favor, escriba el texto a traducir.'
+            })
+        }else{
+            $.ajax({
+                type: $(this).attr('method'),
+                data : datos,
+                url: $(this).attr('action'),
+                dataType: 'json',
+                success: function(data){
+                    var resultado = data;
+                    if(resultado.respuesta == "Exito"){
+                        Swal.fire(
+                            'Correcto',
+                            'Mensaje traducido',
+                            'success'
+                        )
+                        setTimeout(function() {
+                            location.reload();           
+                        }, 2000);
+                    }else{
+                        Swal.fire(
+                            'Error',
+                            'Hubo un error al traducir.',
+                            'error'
+                        )
+                    }
+                }
+            })            
+        }
+    });
+});
