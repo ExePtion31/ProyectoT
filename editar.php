@@ -4,7 +4,7 @@
     <?php
         include("templates/head.php");
     ?>
-    <title>Editar <?php echo $_GET['tipo'] ?></title>
+    <title>Editar</title>
 </head>
 <body>
     <a href="edicion.php?k=<?php echo $_GET['tipo'] ?>" class="btn btn-outline-primary text-decoration-none m-3">Volver</a>

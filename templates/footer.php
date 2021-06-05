@@ -6,4 +6,10 @@
 <script src="js/main.js"></script>
 <script src="js/jquery.dataTables.min.js"></script>
 <script src="js/dataTables.bootstrap4.min.js"></script>
+<script src="js/highcharts.js"></script>
+<script src="js/exporting.js"></script>
+<script src="js/export-data.js"></script>
+<script src="js/accessibility.js"></script>
+<script src="js/data.js"></script>
+<script src="js/drilldown.js"></script>
 

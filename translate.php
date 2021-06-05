@@ -7,7 +7,7 @@
     <?php
         include("templates/head.php");
     ?>
-    <title>Inicio</title>
+    <title>Traductor</title>
 </head>
 <body>
     <a href="index.php" class="btn btn-outline-primary text-decoration-none m-3">Volver</a>

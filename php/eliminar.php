@@ -8,6 +8,10 @@
             $stmt = $conexiondb->prepare('DELETE FROM estudiantes WHERE id = ?');
             $stmt->bind_param("i", $id);
             $stmt->execute();
+
+            $stmt = $conexiondb->prepare('DELETE FROM calificaciones WHERE Estudiante = ?');
+            $stmt->bind_param("i", $id);
+            $stmt->execute();
     
             if($stmt->affected_rows){
                 $respuesta = array(
@@ -30,6 +34,10 @@
         try {
             include('conexion.php');
             $stmt = $conexiondb->prepare('DELETE FROM materias WHERE id = ?');
+            $stmt->bind_param("i", $id);
+            $stmt->execute();
+
+            $stmt = $conexiondb->prepare('DELETE FROM calificaciones WHERE Materia = ?');
             $stmt->bind_param("i", $id);
             $stmt->execute();
     

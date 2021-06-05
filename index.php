@@ -48,7 +48,7 @@
                     </a>
                 </div>
             </div>
-        <a href="" class="text-decoration-none">
+        <a href="consultas.php" class="text-decoration-none">
             <div class="container text-center rounded p-3 contenedor_opciones">
                 <h3>SECCIÓN DE CONSULTAS</h3>
                 <hr>
