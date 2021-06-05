@@ -297,7 +297,13 @@ $(document).ready(function() {
         var Lentrada = document.getElementById('Lentrada')
         var Lsalida = document.getElementById('Lsalida')
 
-        if(Lentrada.value == 0){
+        if(Lentrada.value === Lsalida.value){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Los idiomas tienen que ser diferentes.'
+            })
+        }else if(Lentrada.value == 0){
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',

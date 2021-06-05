@@ -10,6 +10,7 @@
     <title>Inicio</title>
 </head>
 <body>
+    <a href="index.php" class="btn btn-outline-primary text-decoration-none m-3">Volver</a>
     <div class="contenedor">
         <div class="cont_principal_translate w-75 m-auto border p-5 mt-5 rounded shadow">
             <h1 class="text-center fs-1">Traductor</h1>
