@@ -28,11 +28,20 @@ if(isset($_GET["textotraducir"])){
         
     if ($err) {
         echo "cURL Error #:" . $err;
+        $respuesta = array(
+            'respuesta' => 'Error'
+        );
+            
     } else {
         $json = json_decode($response, true);
         $word = $json['outputs'][0]['output'];
-        
+        $respuesta = array(
+            'respuesta' => 'Exito',
+            'palabra' => $word
+        );
     }
+
+    die(json_encode($respuesta));
 }
 ?>
 <?php

@@ -35,7 +35,7 @@
                 </div>
                 <div class="contenido-translate contenedor_principal mt-3">
                     <textarea class="form-control" aria-label="With textarea" name="textotraducir" id="textotraducir"></textarea>
-                    <textarea class="form-control" aria-label="With textarea"><?php echo $word ?></textarea>
+                    <textarea class="form-control" aria-label="With textarea"  id="textotraducido"><?php echo $word ?></textarea>
                 </div>
                 <button type="submit" class="btn btn-outline-primary btn-lg mt-3">Traducir</button>
             </form>

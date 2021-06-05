@@ -324,14 +324,15 @@ $(document).ready(function() {
                 success: function(data){
                     var resultado = data;
                     if(resultado.respuesta == "Exito"){
-                        Swal.fire(
-                            'Correcto',
-                            'Mensaje traducido',
-                            'success'
-                        )
-                        setTimeout(function() {
-                            location.reload();           
-                        }, 2000);
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Mensaje traducido',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                        var traducido = document.getElementById('textotraducido');
+                        traducido.value = resultado.palabra;
                     }else{
                         Swal.fire(
                             'Error',
