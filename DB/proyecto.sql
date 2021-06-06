@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-06-2021 a las 03:24:10
+-- Tiempo de generación: 06-06-2021 a las 04:21:13
 -- Versión del servidor: 10.1.19-MariaDB
 -- Versión de PHP: 5.5.38
 
@@ -39,11 +39,8 @@ CREATE TABLE `calificaciones` (
 --
 
 INSERT INTO `calificaciones` (`ID`, `Fecha`, `Estudiante`, `Materia`, `Nota`) VALUES
-(2, '2021-06-23', 2, 3, 7),
-(3, '2021-06-15', 3, 1, 3),
-(5, '2021-06-18', 2, 1, 2),
-(10, '2021-06-16', 2, 2, 8.3),
-(12, '2021-06-23', 3, 2, 3);
+(1, '2021-06-08', 1, 4, 6),
+(2, '2021-06-09', 1, 3, 5);
 
 -- --------------------------------------------------------
 
@@ -81,9 +78,9 @@ INSERT INTO `cursos` (`ID`, `NombreCurso`) VALUES
 
 CREATE TABLE `estudiantes` (
   `ID` int(5) NOT NULL,
-  `NombreEst` varchar(50) NOT NULL,
-  `EdadEst` tinyint(2) NOT NULL,
-  `CursoEst` tinyint(2) NOT NULL
+  `NombreEst` varchar(70) NOT NULL,
+  `EdadEst` int(2) NOT NULL,
+  `CursoEst` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -91,8 +88,7 @@ CREATE TABLE `estudiantes` (
 --
 
 INSERT INTO `estudiantes` (`ID`, `NombreEst`, `EdadEst`, `CursoEst`) VALUES
-(2, 'Juan Camilo F', 8, 10),
-(3, 'Maria Paula', 3, 1);
+(1, 'Giovanni Baquero Arroyo', 11, 5);
 
 -- --------------------------------------------------------
 
@@ -110,9 +106,8 @@ CREATE TABLE `materias` (
 --
 
 INSERT INTO `materias` (`ID`, `NombreMateria`) VALUES
-(1, 'Sociales'),
-(2, 'Ciencias Naturales'),
-(3, 'EspaÃ±ol');
+(3, 'EspaÃ±ol'),
+(4, 'Ciencias Naturales');
 
 --
 -- Índices para tablas volcadas
@@ -150,7 +145,7 @@ ALTER TABLE `materias`
 -- AUTO_INCREMENT de la tabla `calificaciones`
 --
 ALTER TABLE `calificaciones`
-  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `cursos`
 --
@@ -160,22 +155,12 @@ ALTER TABLE `cursos`
 -- AUTO_INCREMENT de la tabla `estudiantes`
 --
 ALTER TABLE `estudiantes`
-  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `materias`
 --
 ALTER TABLE `materias`
-  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
---
--- Restricciones para tablas volcadas
---
-
---
--- Filtros para la tabla `estudiantes`
---
-ALTER TABLE `estudiantes`
-  ADD CONSTRAINT `estudiantes_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `calificaciones` (`ID`) ON UPDATE CASCADE;
-
+  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
