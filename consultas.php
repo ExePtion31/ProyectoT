@@ -80,8 +80,8 @@
         series: [{
             name: 'Promedio Total',
             colorByPoint: true,
-            data: [
-                { name: 'Azure',
+            data: [{ 
+                name: 'Azure',
                 y: 3.5
             },
             { name: 'Google',
