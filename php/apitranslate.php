@@ -4,10 +4,9 @@ if(isset($_GET["textotraducir"])){
     $origen = $_GET["Lentrada"];
     $textotraducir = $_GET["textotraducir"];
     $traducir = $_GET["Lsalida"];
-
     $curl = curl_init();
     curl_setopt_array($curl, [
-        CURLOPT_URL => "https://systran-systran-platform-for-language-processing-v1.p.rapidapi.com/translation/text/translate?source=".$origen."&target=".$traducir."&input=".$textotraducir,
+        CURLOPT_URL => "https://systran-systran-platform-for-language-processing-v1.p.rapidapi.com/translation/text/translate?source=".$origen."&target=".$traducir."&input=".urlencode($textotraducir),
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_FOLLOWLOCATION => true,
         CURLOPT_ENCODING => "",
