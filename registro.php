@@ -117,7 +117,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text fw-bolder" id="basic-addon1">Calificación:</span>
                     </div>
-                    <input type="number" class="form-control" placeholder="Calificación final" name="calificacion" id="calificacionRCF" max="10" min="0">
+                    <input type="number" class="form-control" placeholder="Calificación final" name="calificacion" id="calificacionRCF" max="10" min="0" step="any">
                 </div>
                 <button type="submit" class="btn btn-primary fw-bolder">ENVIAR</button>
             </form>

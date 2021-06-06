@@ -100,7 +100,7 @@
 
                 while ($row = mysqli_fetch_array($result)) {
             ?>
-            <form method="POST" id="form_registro_notas" action="php/actualizar.php?k=calificacion&id=<?php echo $id ?>">
+            <form method="POST" id="form_edit_notas" action="php/actualizar.php?k=calificacion&id=<?php echo $id ?>">
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text fw-bolder" id="basic-addon1">Fecha:</span>
@@ -143,7 +143,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text fw-bolder" id="basic-addon1">Calificación:</span>
                     </div>
-                    <input type="number" class="form-control" placeholder="Calificación final" name="calificacion" id="calificacionACT" max="10" min="0" value="<?php echo $row['Nota'] ?>">
+                    <input type="number" class="form-control" placeholder="Calificación final" name="calificacion" id="calificacionACT" step="any" max="10" min="0" value="<?php echo $row['Nota'] ?>">
                 </div>
                 <button type="submit" class="btn btn-primary fw-bolder">ENVIAR</button>
             </form>

@@ -56,6 +56,35 @@
                 echo "Error:" . $e->getMessage();  
             }
         }
+    }else{
+        if(isset($_GET['id'])){
+            try{
+                $id = $_GET['id'];
+                $fecha = $_POST['fecha'];
+                $estudiante = $_POST['estudiante'];
+                $materia = $_POST['materia'];
+                $calificacion = $_POST['calificacion'];
+    
+                include("conexion.php");
+                $stmt = $conexiondb->prepare('UPDATE calificaciones SET Fecha = ?, Estudiante = ?, Materia = ?, Nota = ? WHERE ID = ?');
+                $stmt->bind_param("siiii", $fecha, $estudiante, $materia, $calificacion, $id);
+                $stmt->execute();
+        
+                if($stmt->affected_rows){
+                    $respuesta = array(
+                        'respuesta' => 'Exito'
+                    );
+                }else{
+                    $respuesta = array(
+                        'respuesta' => 'Error'
+                    ); 
+                }
+                $stmt->close();
+                $conexiondb ->close();  
+            }catch (Exception $e) {
+                echo "Error:" . $e->getMessage();  
+            }
+        }
     }
     
     die(json_encode($respuesta));

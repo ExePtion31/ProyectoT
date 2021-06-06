@@ -24,6 +24,27 @@
 
 <?php
     include('templates/footer.php');
+    include('php/conexion.php');
+
+    $query = "SELECT * FROM materias";
+    $result = mysqli_query($conexiondb, $query);
+
+    while ($row = mysqli_fetch_array($result)) {
+        $idmateria = $row['ID'];
+        $nombremateria = $row['NombreMateria'];
+
+        $query2 = "SELECT Nota FROM calificaciones WHERE Materia = '$idmateria'";
+        $result2 = mysqli_query($conexiondb, $query2);
+        $contador = 0;
+        $sumatoria = 0;
+
+        while ($row2 = mysqli_fetch_array($result2)) {
+            $sumatoria += $row2['Nota'];
+            $contador += 1;
+        }
+        $total = $sumatoria / $contador;
+        echo("El porcentaje de la materia ".$nombremateria."es: ".round($total,2));
+    }     
 ?>
 
 <!--GRÁFICA DE TORTA-->
@@ -59,33 +80,15 @@
         series: [{
             name: 'Promedio Total',
             colorByPoint: true,
-            data: [{
-                name: 'Azure',
-                y: 90
-            }, {
-                name: 'Internet Explorer',
-                y: 11.84
-            }, {
-                name: 'Firefox',
-                y: 10.85
-            }, {
-                name: 'Edge',
-                y: 4.67
-            }, {
-                name: 'Safari',
-                y: 4.18
-            }, {
-                name: 'Sogou Explorer',
-                y: 1.64
-            }, {
-                name: 'Opera',
-                y: 1.6
-            }, {
-                name: 'QQ',
-                y: 1.2
-            }, {
-                name: 'Other',
-                y: 2.61
+            data: [
+                { name: 'Azure',
+                y: 3.5
+            },
+            { name: 'Google',
+                y: 8
+            },
+            { name: 'Microsoft',
+                y: 7
             }]
         }]
     });

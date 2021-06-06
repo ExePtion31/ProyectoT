@@ -290,6 +290,46 @@ $(document).ready(function() {
         }
     });
 
+    //ACTUALIZAR REGISTRO CALIFICACIONES
+    $('#form_edit_notas').on('submit',function(e){
+        e.preventDefault();
+        var datos = $(this).serializeArray();
+
+        if($('#calificacionACT').val().trim() === ''){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Por favor, digite la calificación.'
+            })
+        }else{
+            $.ajax({
+                type: $(this).attr('method'),
+                data : datos,
+                url: $(this).attr('action'),
+                dataType: 'json',
+                success: function(data){
+                    var resultado = data;
+                    if(resultado.respuesta == "Exito"){
+                        Swal.fire(
+                            'Correcto',
+                            'Registro actualizado exitosamente',
+                            'success'
+                        )
+                        setTimeout(function() {
+                            location.reload();           
+                        }, 2000);
+                    }else{
+                        Swal.fire(
+                            'Error',
+                            'Hubo un error al actualizar el registro.',
+                            'error'
+                        )
+                    }
+                }
+            })
+        }
+    });
+
     //VALIDAR TRADUCTOR
     $('#form_translate').on('submit',function(e){
         e.preventDefault();
