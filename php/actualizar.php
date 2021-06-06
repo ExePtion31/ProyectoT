@@ -67,7 +67,7 @@
     
                 include("conexion.php");
                 $stmt = $conexiondb->prepare('UPDATE calificaciones SET Fecha = ?, Estudiante = ?, Materia = ?, Nota = ? WHERE ID = ?');
-                $stmt->bind_param("siiii", $fecha, $estudiante, $materia, $calificacion, $id);
+                $stmt->bind_param("siidi", $fecha, $estudiante, $materia, $calificacion, $id);
                 $stmt->execute();
         
                 if($stmt->affected_rows){

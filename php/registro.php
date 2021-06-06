@@ -60,16 +60,14 @@
         die(json_encode($respuesta)); 
     }elseif($_GET['k'] == "calificaciones"){
         if(isset($_POST['fecha'])){
-
             $fecha = $_POST['fecha'];
             $estudiante = $_POST['estudiante'];
             $materia = $_POST['materia'];
             $nota = $_POST['calificacion'];
-
             try {
 
                 $stmt = $conexiondb->prepare("INSERT INTO calificaciones (Fecha, Estudiante, Materia, Nota) VALUES (?, ?, ?, ?)");
-                $stmt->bind_param("siii", $fecha, $estudiante, $materia, $nota);
+                $stmt->bind_param("siid", $fecha, $estudiante, $materia, $nota);
                 $stmt->execute();
                 $id_registro = $stmt->insert_id;
 
