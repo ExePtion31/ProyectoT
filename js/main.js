@@ -407,7 +407,7 @@ function getDataTorta(){
 
 function graficoTorta(data){
     console.log(data);
-    var torta = Highcharts.chart('container', {
+    torta = {
         chart: {
             plotBackgroundColor: null,
             plotBorderWidth: null,
@@ -443,7 +443,9 @@ function graficoTorta(data){
                 y: data[0]['promedio']
             }]
         }]
-    });  
+    };  
+
+    Highcharts.chart('container',torta)  
 
 }
 
