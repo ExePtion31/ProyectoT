@@ -9,9 +9,9 @@
             $stmt->bind_param("i", $id);
             $stmt->execute();
 
-            $stmt = $conexiondb->prepare('DELETE FROM calificaciones WHERE Estudiante = ?');
-            $stmt->bind_param("i", $id);
-            $stmt->execute();
+            $stmt2 = $conexiondb->prepare('DELETE FROM calificaciones WHERE Estudiante = ?');
+            $stmt2->bind_param("i", $id);
+            $stmt2->execute();
     
             if($stmt->affected_rows){
                 $respuesta = array(
@@ -23,8 +23,9 @@
                     'respuesta' => 'Error'
                 );
             }
-    
-    
+            $stmt->close();
+            $stmt2->close();
+            $conexiondb ->close();  
         } catch (Exception $e) {
             $respuesta = array(
                 'respuesta' => $e->getMessage()
@@ -37,9 +38,9 @@
             $stmt->bind_param("i", $id);
             $stmt->execute();
 
-            $stmt = $conexiondb->prepare('DELETE FROM calificaciones WHERE Materia = ?');
-            $stmt->bind_param("i", $id);
-            $stmt->execute();
+            $stmt2 = $conexiondb->prepare('DELETE FROM calificaciones WHERE Materia = ?');
+            $stmt2->bind_param("i", $id);
+            $stmt2->execute();
     
             if($stmt->affected_rows){
                 $respuesta = array(
@@ -51,7 +52,9 @@
                     'respuesta' => 'Error'
                 );
             }
-    
+            $stmt->close();
+            $stmt2->close();
+            $conexiondb ->close();  
     
         } catch (Exception $e) {
             $respuesta = array(
@@ -75,7 +78,8 @@
                     'respuesta' => 'Error'
                 );
             }
-    
+            $stmt->close();
+            $conexiondb ->close();  
     
         } catch (Exception $e) {
             $respuesta = array(
