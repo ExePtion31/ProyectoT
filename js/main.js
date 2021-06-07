@@ -392,7 +392,8 @@ $(document).ready(function() {
     });
 });
 
-function getDataTorta(){
+function getData(){
+    //DATA TORTA
     $.ajax({
         type: 'POST',
         data : '',
@@ -402,7 +403,19 @@ function getDataTorta(){
             var resultado = data;
             graficoTorta(resultado);
         }
-    })    
+    })
+    
+    //DATA BARRAS
+    $.ajax({
+        type: 'POST',
+        data : '',
+        url: 'php/graficaBarras.php',
+        dataType: 'json',
+        success: function(data){
+            var resultado = data;
+            graficaBarras(resultado);
+        }
+    })
 }
 
 function graficoTorta(data){
@@ -449,7 +462,8 @@ function graficoTorta(data){
 
 }
 
-function graficaBarras(){
+function graficaBarras(data){
+    console.log(data);
     Highcharts.chart('container2', {
         chart: {
             type: 'column'

@@ -26,7 +26,6 @@
 ?>
 <!--GRÁFICAS-->
 <script>
-    getDataTorta();
-    graficaBarras();
+    getData();
 </script>
 </html>
